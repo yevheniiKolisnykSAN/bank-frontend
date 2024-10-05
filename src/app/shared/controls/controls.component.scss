@@ -1,0 +1,21 @@
+@import "../variables.scss";
+
+:host {
+  width: 100%;
+}
+
+.form-control {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 4px;
+
+  label.invalid {
+    color: $error-red;
+  }
+
+  .error-message {
+    color: $error-red;
+    font-size: 12px;
+  }
+}

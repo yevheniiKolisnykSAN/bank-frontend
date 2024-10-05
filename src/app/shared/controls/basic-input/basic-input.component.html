@@ -1,0 +1,12 @@
+<input
+  pInputText
+  [ngClass]="{
+        'ng-valid': control()?.valid && (control()?.touched || control()?.dirty),
+        'ng-invalid': control()?.invalid && (control()?.touched || control()?.dirty),
+        'ng-dirty': control()?.dirty,
+      }"
+  [type]="type()"
+  [id]="controlId()"
+  [value]="value()"
+  (input)="updateValue($event)"
+  [disabled]="isDisabled()"/>

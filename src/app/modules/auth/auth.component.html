@@ -1,0 +1,11 @@
+<div class="auth-container">
+  <p-card class="card" header="Log in">
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <app-controls label="Email" type="text" [control]="form.controls['email']"/>
+      <app-controls label="Password" type="password" [control]="form.controls['password']"/>
+
+      <p-button class="submit-btn" label="Submit" severity="success" type="submit"/>
+    </form>
+  </p-card>
+</div>

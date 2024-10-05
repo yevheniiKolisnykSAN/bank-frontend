@@ -1,0 +1,38 @@
+<div class="form-control" [ngStyle]="{marginBottom: !(control().touched && control().invalid) ? '18px' : 0}">
+  @if (label()) {
+    <label
+      [ngClass]="{invalid: control().dirty && control().invalid}"
+      [for]="id()"
+    >{{ label() }}</label>
+  }
+
+  @switch (type()) {
+    @case ('text') {
+      <app-basic-input
+        [controlId]="id()"
+        [formControl]="control() | formControl"
+      />
+    }
+    @case ('password') {
+      <app-password-input
+        [controlId]="id()"
+        [formControl]="control() | formControl"
+      />
+    }
+  }
+
+  @if (control().touched && control().invalid) {
+    <div class="error-message">
+      @if (control().errors?.['required']) {
+        <small [id]="id()">
+          This field is required
+        </small>
+      }
+      @if (control().errors?.['email']) {
+        <small [id]="id()">
+          Please enter a valid email address
+        </small>
+      }
+    </div>
+  }
+</div>
